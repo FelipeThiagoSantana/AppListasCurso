@@ -28,7 +28,7 @@
         android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="text"
-        android:text="@string/txt_hint_primeiro_nome"
+        android:hint="@string/txt_hint_primeiro_nome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTitulo" />
@@ -40,7 +40,7 @@
         android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="text"
-        android:text="@string/txt_hint_sobrenome"
+        android:hint="@string/txt_hint_sobrenome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPrimeiroNome" />
@@ -52,7 +52,7 @@
         android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="text"
-        android:text="@string/txt_hint_nome_do_curso_desejado"
+        android:hint="@string/txt_hint_nome_do_curso_desejado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editSegundoNome" />
@@ -64,7 +64,7 @@
         android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="text"
-        android:text="@string/txt_hint_telefone_de_contato"
+        android:hint="@string/txt_hint_telefone_de_contato"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editCursoDesejado" />
