@@ -8,12 +8,12 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/aplicativo_lista_vip_curso_android"
         android:textAlignment="center"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,58 +22,60 @@
         app:layout_constraintVertical_bias="0.089" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/editPrimeiroNome"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="text"
-        android:text="@string/primeiro_nome"
+        android:hint="@string/txt_hint_primeiro_nome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTitulo" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/editSegundoNome"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="text"
-        android:text="@string/sobrenome"
+        android:hint="@string/txt_hint_sobrenome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/editPrimeiroNome" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/editCursoDesejado"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="text"
-        android:text="@string/nome_do_curso_desejado"
+        android:hint="@string/txt_hint_nome_do_curso_desejado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintTop_toBottomOf="@+id/editSegundoNome" />
 
     <EditText
         android:id="@+id/editTextText4"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="text"
-        android:text="@string/telefone_de_contato"
+        android:hint="@string/txt_hint_telefone_de_contato"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
+        app:layout_constraintTop_toBottomOf="@+id/editCursoDesejado" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/limpar"
+        android:text="@string/txt_button_limpar"
+        app:icon="@android:drawable/ic_menu_close_clear_cancel"
+        app:iconTint="#FB0000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
@@ -85,7 +87,9 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/salvar"
+        android:text="@string/txt_button_salvar"
+        app:icon="@android:drawable/ic_input_add"
+        app:iconTint="#00C853"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.924"
@@ -97,7 +101,7 @@
         android:id="@+id/button3"
         android:layout_width="176dp"
         android:layout_height="49dp"
-        android:text="@string/button"
+        android:text="@string/txt_button_finalizar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">AppListasCurso</string>
-    <string name="telefone_de_contato">Telefone de contato</string>
-    <string name="limpar">Limpar</string>
-    <string name="salvar">Salvar</string>
+    <string name="txt_hint_telefone_de_contato">Telefone de contato</string>
+    <string name="txt_button_limpar">Limpar</string>
+    <string name="txt_button_salvar">Salvar</string>
     <string name="button">Button</string>
-    <string name="nome_do_curso_desejado">Nome do Curso Desejado</string>
-    <string name="sobrenome">Sobrenome</string>
-    <string name="primeiro_nome">Primeiro Nome</string>
+    <string name="txt_hint_nome_do_curso_desejado">Nome do Curso Desejado</string>
+    <string name="txt_hint_sobrenome">Sobrenome</string>
+    <string name="txt_hint_primeiro_nome">Primeiro Nome</string>
     <string name="aplicativo_lista_vip_curso_android">Aplicativo Lista VIP Curso Android</string>
+    <string name="txt_button_finalizar">Finalizar</string>
 </resources>
