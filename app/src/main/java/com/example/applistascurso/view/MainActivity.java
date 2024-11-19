@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.applistascurso.R;
+import com.example.applistascurso.controller.PessoaController;
 import com.example.applistascurso.model.Pessoa;
 
 
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        PessoaController controller = new PessoaController();
 
         Pessoa pessoa = new Pessoa();
 
@@ -78,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Toast.makeText(MainActivity.this, "Dados do " + pessoa.getPrimeiroNome() + " salvos com sucesso!" , Toast.LENGTH_LONG).show();
 
-                Log.i("Pessoa", pessoa.getPrimeiroNome());
+                controller.salvar(pessoa);
             }
         });
 
