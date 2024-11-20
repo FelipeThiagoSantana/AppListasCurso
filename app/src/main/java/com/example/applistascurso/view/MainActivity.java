@@ -61,44 +61,35 @@ public class MainActivity extends AppCompatActivity {
         editTelefoneContato.setText(pessoa.getTelefoneContato());
 
 
-       btnLimpar.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               editPrimeiroNome.setText("");
-               editSobrenome.setText("");
-               editCursoDesejado.setText("");
-               editTelefoneContato.setText("");
+       btnLimpar.setOnClickListener(view -> {
+           editPrimeiroNome.setText("");
+           editSobrenome.setText("");
+           editCursoDesejado.setText("");
+           editTelefoneContato.setText("");
 
-               Toast.makeText(MainActivity.this, "Campos limpos", Toast.LENGTH_LONG).show();
-           }
+           Toast.makeText(MainActivity.this, "Campos limpos", Toast.LENGTH_LONG).show();
        });
 
-       btnFinalizar.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               Toast.makeText(MainActivity.this, "Finalizando aplicação", Toast.LENGTH_LONG).show();
-               finish();
-           }
+       btnFinalizar.setOnClickListener(view -> {
+           Toast.makeText(MainActivity.this, "Finalizando aplicação", Toast.LENGTH_LONG).show();
+           finish();
        });
 
-        btnSalvar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pessoa.setPrimeiroNome(editPrimeiroNome.getText().toString());
-                pessoa.setSobrenome(editSobrenome.getText().toString());
-                pessoa.setCursoDesejado(editCursoDesejado.getText().toString());
-                pessoa.setTelefoneContato(editTelefoneContato.getText().toString());
+        btnSalvar.setOnClickListener(view -> {
+            pessoa.setPrimeiroNome(editPrimeiroNome.getText().toString());
+            pessoa.setSobrenome(editSobrenome.getText().toString());
+            pessoa.setCursoDesejado(editCursoDesejado.getText().toString());
+            pessoa.setTelefoneContato(editTelefoneContato.getText().toString());
 
-                Toast.makeText(MainActivity.this, "Dados do " + pessoa.getPrimeiroNome() + " salvos com sucesso!" , Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "Dados do " + pessoa.getPrimeiroNome() + " salvos com sucesso!" , Toast.LENGTH_LONG).show();
 
-                listaVip.putString("primeroNome", pessoa.getPrimeiroNome());
-                listaVip.putString("sobrenome", pessoa.getSobrenome());
-                listaVip.putString("cursoDesejado", pessoa.getCursoDesejado());
-                listaVip.putString("telefoneContato", pessoa.getTelefoneContato());
-                listaVip.apply();
+            listaVip.putString("primeroNome", pessoa.getPrimeiroNome());
+            listaVip.putString("sobrenome", pessoa.getSobrenome());
+            listaVip.putString("cursoDesejado", pessoa.getCursoDesejado());
+            listaVip.putString("telefoneContato", pessoa.getTelefoneContato());
+            listaVip.apply();
 
-                controller.salvar(pessoa);
-            }
+            controller.salvar(pessoa);
         });
 
     }
