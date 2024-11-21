@@ -9,4 +9,5 @@
     <string name="txt_hint_primeiro_nome">Primeiro Nome</string>
     <string name="aplicativo_lista_vip_curso_android">Aplicativo Lista VIP Curso Android</string>
     <string name="txt_button_finalizar">Finalizar</string>
+    <string name="cursos">Cursos</string>
 </resources>

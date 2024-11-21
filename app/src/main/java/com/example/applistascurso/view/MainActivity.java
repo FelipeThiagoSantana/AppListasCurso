@@ -1,5 +1,4 @@
 package com.example.applistascurso.view;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
