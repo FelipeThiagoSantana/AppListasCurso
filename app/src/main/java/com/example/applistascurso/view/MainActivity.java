@@ -15,6 +15,7 @@ import com.example.applistascurso.model.Pessoa;
 public class MainActivity extends AppCompatActivity {
 
     SharedPreferences preferences;
+    SharedPreferences.Editor listaVip;
     public static final String NOME_PREFERENCES = "pref_listavip";
 
     EditText editPrimeiroNome;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnSalvar;
     Button btnFinalizar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         preferences = getSharedPreferences("NOME_PREFERENCES", 0);
-        SharedPreferences.Editor listaVip = preferences.edit();
+        listaVip = preferences.edit();
 
         PessoaController controller = new PessoaController();
 
@@ -66,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
            editSobrenome.setText("");
            editCursoDesejado.setText("");
            editTelefoneContato.setText("");
+
+           listaVip.clear();
+           listaVip.apply();
 
            Toast.makeText(MainActivity.this, "Campos limpos", Toast.LENGTH_LONG).show();
        });
