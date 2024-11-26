@@ -1,5 +1,7 @@
 package com.example.applistascurso.controller;
 
+import androidx.compose.ui.graphics.Color;
+
 import com.example.applistascurso.model.Curso;
 
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ public class CursoController {
 
         listCursos = new ArrayList<Curso>();
 
+        listCursos.add( new Curso("Selecione um Curso"));
         listCursos.add(new Curso("Java"));
         listCursos.add(new Curso("Android"));
         listCursos.add(new Curso("C#"));

@@ -1,17 +1,25 @@
 package com.example.applistascurso.view;
+
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.applistascurso.R;
 import com.example.applistascurso.controller.CursoController;
 import com.example.applistascurso.controller.PessoaController;
 import com.example.applistascurso.model.Curso;
 import com.example.applistascurso.model.Pessoa;
+
 import java.util.List;
 
 
@@ -55,10 +63,33 @@ public class MainActivity extends AppCompatActivity {
         btnSalvar = findViewById(R.id.btnSalvar);
         btnFinalizar = findViewById(R.id.btnFinalizar);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item, cursoController.dadosParaSpinner());
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                MainActivity.this, android.R.layout.simple_spinner_item,
+                cursoController.dadosParaSpinner());
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+        spinner.setSelection(0);
+
+        //custon Spinner insert option defalt
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (view != null) {
+                    TextView selectedView = (TextView) view;
+                    if (position == 0) {
+                        selectedView.setTextColor(Color.GRAY);
+                    } else {
+                        selectedView.setTextColor(Color.BLACK);
+
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
 
 
         editPrimeiroNome.setText(pessoa.getPrimeiroNome());
@@ -93,6 +124,5 @@ public class MainActivity extends AppCompatActivity {
 
             controller.salvar(pessoa);
         });
-
     }
 }
