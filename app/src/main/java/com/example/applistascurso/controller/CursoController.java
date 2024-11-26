@@ -7,16 +7,17 @@ import java.util.List;
 
 public class CursoController {
 
-    public List listCursos;
+    private List listCursos;
 
     public List getListaCursos() {
 
         listCursos = new ArrayList<Curso>();
 
-        listCursos.add(new Curso());
-        listCursos.add(new Curso());
-        listCursos.add(new Curso());
-        listCursos.add(new Curso());
+        listCursos.add(new Curso("Java"));
+        listCursos.add(new Curso("Android"));
+        listCursos.add(new Curso("C#"));
+        listCursos.add(new Curso("JavaScript"));
+        listCursos.add(new Curso("PHP"));
 
         return listCursos;
     }
