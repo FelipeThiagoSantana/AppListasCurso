@@ -9,7 +9,7 @@ public class CursoController {
 
     private List listCursos;
 
-    public List getListaCursos() {
+    public List getListaDeCursos() {
 
         listCursos = new ArrayList<Curso>();
 

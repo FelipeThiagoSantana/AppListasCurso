@@ -1,20 +1,15 @@
 package com.example.applistascurso.view;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.applistascurso.R;
 import com.example.applistascurso.controller.CursoController;
 import com.example.applistascurso.controller.PessoaController;
 import com.example.applistascurso.model.Curso;
 import com.example.applistascurso.model.Pessoa;
-
 import java.util.List;
 
 
@@ -24,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     EditText editSobrenome;
     EditText editCursoDesejado;
     EditText editTelefoneContato;
-    List <Curso> listaDeCursos;
+    List<Curso> listaDeCursos;
     Button btnLimpar;
     Button btnSalvar;
     Button btnFinalizar;
@@ -38,9 +33,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         PessoaController controller = new PessoaController(MainActivity.this);
+        controller.toString();
 
         CursoController cursoController = new CursoController();
-        listaDeCursos = cursoController.getListaCursos();
+        listaDeCursos = cursoController.getListaDeCursos();
 
         Pessoa pessoa = new Pessoa();
         controller.buscar(pessoa);
