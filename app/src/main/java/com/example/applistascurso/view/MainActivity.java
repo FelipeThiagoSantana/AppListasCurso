@@ -1,7 +1,9 @@
 package com.example.applistascurso.view;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,10 +21,11 @@ public class MainActivity extends AppCompatActivity {
     EditText editSobrenome;
     EditText editCursoDesejado;
     EditText editTelefoneContato;
-    List<Curso> listaDeCursos;
+    List<String> nomesDosCursos;
     Button btnLimpar;
     Button btnSalvar;
     Button btnFinalizar;
+    Spinner spinner;
 
 
     @Override
@@ -36,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         controller.toString();
 
         CursoController cursoController = new CursoController();
-        listaDeCursos = cursoController.getListaDeCursos();
+        nomesDosCursos = cursoController.dadosParaSpinner();
 
         Pessoa pessoa = new Pessoa();
         controller.buscar(pessoa);
@@ -46,10 +49,16 @@ public class MainActivity extends AppCompatActivity {
         editSobrenome = findViewById(R.id.editSobrenome);
         editCursoDesejado = findViewById(R.id.editCursoDesejado);
         editTelefoneContato = findViewById(R.id.editTelefoneContato);
+        spinner = findViewById(R.id.spinner);
 
         btnLimpar = findViewById(R.id.btnLimpar);
         btnSalvar = findViewById(R.id.btnSalvar);
         btnFinalizar = findViewById(R.id.btnFinalizar);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item, cursoController.dadosParaSpinner());
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
 
         editPrimeiroNome.setText(pessoa.getPrimeiroNome());
