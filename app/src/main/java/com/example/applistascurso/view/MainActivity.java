@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         spinner.setAdapter(adapter);
         spinner.setSelection(0);
 
-        //custon Spinner insert option 
+        //custon Spinner insert option default
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
