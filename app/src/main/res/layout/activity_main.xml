@@ -46,28 +46,15 @@
         app:layout_constraintTop_toBottomOf="@+id/editPrimeiroNome" />
 
     <EditText
-        android:id="@+id/editCursoDesejado"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="@string/txt_hint_nome_do_curso_desejado"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editSobrenome" />
-
-    <EditText
         android:id="@+id/editTelefoneContato"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginTop="24dp"
         android:ems="10"
-        android:inputType="text"
         android:hint="@string/txt_hint_telefone_de_contato"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editCursoDesejado" />
+        app:layout_constraintTop_toBottomOf="@+id/editSobrenome" />
 
     <Spinner
         android:id="@+id/spinner"

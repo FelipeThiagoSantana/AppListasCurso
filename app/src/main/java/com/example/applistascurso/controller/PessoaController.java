@@ -1,33 +1,56 @@
 package com.example.applistascurso.controller;
 
+import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import com.example.applistascurso.database.ListaCursosDB;
 import com.example.applistascurso.model.Pessoa;
 import com.example.applistascurso.view.MainActivity;
 
-public class PessoaController {
+import java.util.List;
+
+public class PessoaController extends ListaCursosDB {
 
     SharedPreferences preferences;
     SharedPreferences.Editor listaVip;
     public static final String NOME_PREFERENCES = "pref_listavip";
 
     public PessoaController(MainActivity mainActivity) {
+        super(mainActivity);
         preferences = mainActivity.getSharedPreferences("NOME_PREFERENCES", 0);
         listaVip = preferences.edit();
     }
 
     public void salvar(Pessoa pessoa) {
+        ContentValues dados = new ContentValues();
 
         listaVip.putString("primeroNome", pessoa.getPrimeiroNome());
         listaVip.putString("sobrenome", pessoa.getSobrenome());
-        listaVip.putString("cursoDesejado", pessoa.getCursoDesejado());
+        //listaVip.putString("cursoDesejado", pessoa.getCursoDesejado());
         listaVip.putString("telefoneContato", pessoa.getTelefoneContato());
         listaVip.apply();
+
+        dados.put("nome", pessoa.getPrimeiroNome());
+        dados.put("sobrenome", pessoa.getSobrenome());
+        dados.put("telefoneContato", pessoa.getTelefoneContato());
+        dados.put("cursoDesejado", pessoa.getCursoDesejado());
+
+        salvarObjeto("Pessoas", dados);
+
 
         Log.d("PessoaController", "Salvando pessoa: " + pessoa.toString());
 
     }
+    public void atualizarNome(String nome) {
+        ContentValues dados = new ContentValues();
+        listaVip.putString("primeroNome", nome);
+        listaVip.apply();
+        dados.put("nome", nome);
+        atualizarObjeto("Pessoas", nome, dados);
+    }
+
+
 
 
     public Pessoa buscar(Pessoa pessoa) {
@@ -37,6 +60,10 @@ public class PessoaController {
         pessoa.setTelefoneContato(preferences.getString("telefoneContato", ""));
 
         return pessoa;
+    }
+
+    public List<Pessoa> getListaDePessoas() {
+        return listarPessoas();
     }
 
     public void limpar() {

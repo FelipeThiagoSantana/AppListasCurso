@@ -1,10 +1,19 @@
 package com.example.applistascurso.model;
 
 public class Pessoa {
+    private int idPessoa;
     private String primeiroNome;
     private String sobrenome;
     private String cursoDesejado;
     private String telefoneContato;
+
+    public int getIdPessoa() {
+        return idPessoa;
+    }
+
+    public void setIdPessoa(int idPessoa) {
+        this.idPessoa = idPessoa;
+    }
 
     public Pessoa() {
 
