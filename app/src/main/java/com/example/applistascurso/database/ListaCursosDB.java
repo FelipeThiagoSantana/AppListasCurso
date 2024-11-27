@@ -28,14 +28,12 @@ public class ListaCursosDB extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String sqlTabela = "CREATE TABLE IF NOT EXISTS pessoas(id INTEGER PRIMARY KEY AUTOINCREMENT,)"+
-                "nome TEXT,"+
-                "sobrenome TEXT,"+
-                "cursoDesejado TEXT,"+
-                "telefoneContato TEXT" +
-                "cursoDesejado TEXT"+
-                ")";
-
+        String sqlTabela = "CREATE TABLE Pessoas (id INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                "nome TEXT, "+
+                "sobrenome TEXT, "+
+                "telefoneContato TEXT, " +
+                "cursoDesejado TEXT)";
+        db.execSQL(sqlTabela);
     }
 
     @Override
