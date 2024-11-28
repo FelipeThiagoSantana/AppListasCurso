@@ -52,8 +52,8 @@ public class PessoaController extends ListaCursosDB {
 
 
 
-    //TODO: Listar pessoas
-    public Pessoa buscar(Pessoa pessoa) {
+    //cat data from sharedpreferences
+    public Pessoa buscarDadosSharedPreferences(Pessoa pessoa) {
         pessoa.setPrimeiroNome(preferences.getString("primeroNome", ""));
         pessoa.setSobrenome(preferences.getString("sobrenome", ""));
         pessoa.setCursoDesejado(preferences.getString("cursoDesejado", ""));
@@ -62,31 +62,31 @@ public class PessoaController extends ListaCursosDB {
         return pessoa;
     }
 
-    public List<Pessoa> getListaDePessoas() {
-        return listarPessoas();
-    }
-
-
-
-    //Todo: Alterar pessoa
+     //alter data from sharedpreferences
     public void alterar(Pessoa pessoa) {
         ContentValues dados = new ContentValues();
 
-
         dados.put("id", pessoa.getIdPessoa());
-        pessoa.setPrimeiroNome(preferences.getString("primeroNome", ""));
-        pessoa.setSobrenome(preferences.getString("sobrenome", ""));
-        pessoa.setCursoDesejado(preferences.getString("cursoDesejado", ""));
-        pessoa.setTelefoneContato(preferences.getString("telefoneContato", ""));
+        dados.put("nome", pessoa.getPrimeiroNome());
+        dados.put("sobrenome", pessoa.getSobrenome());
+        dados.put("telefoneContato", pessoa.getTelefoneContato());
+        dados.put("cursoDesejado", pessoa.getCursoDesejado());
 
         alterarObjeto("Pessoas", dados);
     }
 
+    //list data from database
+    public List<Pessoa> getListaDePessoas() {
+        return listarPessoas();
+    }
+
+    //delete data from database
     public void deletar(int id) {
         deletarObjeto("Pessoas", id);
 
     }
 
+    //Clear data from fields
     public void limpar() {
         listaVip.clear();
         listaVip.apply();

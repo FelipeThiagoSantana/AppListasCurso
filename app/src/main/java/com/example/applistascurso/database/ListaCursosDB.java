@@ -102,9 +102,8 @@ public class ListaCursosDB extends SQLiteOpenHelper {
 
     //Delete data from database
     public void deletarObjeto(String tabela,
-                              int dados) {
-        //
-        int id = dados.getAsInteger("id");
+                              int id) {
+
         db.delete(tabela, "id = ?",
                 new String[]{String.valueOf(id)});
     }

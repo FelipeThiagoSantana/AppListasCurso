@@ -17,7 +17,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.applistascurso.R;
 import com.example.applistascurso.controller.CursoController;
 import com.example.applistascurso.controller.PessoaController;
-import com.example.applistascurso.model.Curso;
 import com.example.applistascurso.model.Pessoa;
 
 import java.util.List;
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         nomesDosCursos = cursoController.dadosParaSpinner();
 
         Pessoa pessoa = new Pessoa();
-        controller.buscar(pessoa);
+        controller.buscarDadosSharedPreferences(pessoa);
 
         listaDePessoas = controller.getListaDePessoas();
 
@@ -116,6 +115,9 @@ public class MainActivity extends AppCompatActivity {
             controller.atualizarNome(pessoa.getPrimeiroNome());
 
         });
+
+
+        controller.deletar(58);
 
 
 
