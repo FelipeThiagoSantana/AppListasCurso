@@ -6,13 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
-
-import com.example.applistascurso.controller.CursoController;
 import com.example.applistascurso.model.Pessoa;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 public class ListaCursosDB extends SQLiteOpenHelper {
@@ -31,6 +27,8 @@ public class ListaCursosDB extends SQLiteOpenHelper {
 
     }
 
+
+    //Create DataBase
     @Override
     public void onCreate(SQLiteDatabase db) {
 
@@ -46,13 +44,13 @@ public class ListaCursosDB extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
 
+    //insert data into database
     public void salvarObjeto(String tabela,
                              ContentValues dados) {
         db.insert(tabela, null, dados);
 
-
     }
-
+    //list data from database
     public List<Pessoa> listarPessoas() {
         List<Pessoa> pessoas = new ArrayList<>();
 
@@ -64,6 +62,8 @@ public class ListaCursosDB extends SQLiteOpenHelper {
         cursor = db.rawQuery(querySQL, null);
 
         if (cursor.moveToFirst()) {
+            //TODO: Count SQL registers
+
             do {
                 registro = new Pessoa();
                 registro.setIdPessoa(cursor.getInt(0));
@@ -84,16 +84,29 @@ public class ListaCursosDB extends SQLiteOpenHelper {
 
     }
 
+
+    //Update data from database
     public void atualizarObjeto(String tabela, String nomeColuna,
                              ContentValues dados) {
         db.insert(tabela, nomeColuna, dados);
     }
 
+    public void  alterarObjeto(String tabela,
+                                     ContentValues dados) {
+        //
+        int id = dados.getAsInteger("id");
 
+        db.update(tabela, dados, "id = ?",
+                new String[]{String.valueOf(id)});
+    }
 
-
-
-
-
+    //Delete data from database
+    public void deletarObjeto(String tabela,
+                              int dados) {
+        //
+        int id = dados.getAsInteger("id");
+        db.delete(tabela, "id = ?",
+                new String[]{String.valueOf(id)});
+    }
 
 }

@@ -52,7 +52,7 @@ public class PessoaController extends ListaCursosDB {
 
 
 
-
+    //TODO: Listar pessoas
     public Pessoa buscar(Pessoa pessoa) {
         pessoa.setPrimeiroNome(preferences.getString("primeroNome", ""));
         pessoa.setSobrenome(preferences.getString("sobrenome", ""));
@@ -66,9 +66,31 @@ public class PessoaController extends ListaCursosDB {
         return listarPessoas();
     }
 
+
+
+    //Todo: Alterar pessoa
+    public void alterar(Pessoa pessoa) {
+        ContentValues dados = new ContentValues();
+
+
+        dados.put("id", pessoa.getIdPessoa());
+        pessoa.setPrimeiroNome(preferences.getString("primeroNome", ""));
+        pessoa.setSobrenome(preferences.getString("sobrenome", ""));
+        pessoa.setCursoDesejado(preferences.getString("cursoDesejado", ""));
+        pessoa.setTelefoneContato(preferences.getString("telefoneContato", ""));
+
+        alterarObjeto("Pessoas", dados);
+    }
+
+    public void deletar(int id) {
+        deletarObjeto("Pessoas", id);
+
+    }
+
     public void limpar() {
         listaVip.clear();
         listaVip.apply();
 
     }
+
 }
